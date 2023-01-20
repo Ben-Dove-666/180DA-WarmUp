@@ -1,4 +1,12 @@
+#code sources:
+#https://code.likeagirl.io/finding-dominant-colour-on-an-image-b4e075f98097
+#https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html
 
+#improvements:
+# invert mask for contouring 
+# add in contour tracking
+# blur mask to elimminate noise from camera 
+# add in threshold for contour area to select correct contour of the desired object 
 import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
@@ -68,6 +76,7 @@ while(1):
             cv.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)
             cv.rectangle(mask_sm,(x,y),(x+w,y+h),(0,0,255),2)
             
+            
             #color detection
             img = frame[y:y+h, x:x+w]
             img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
@@ -79,7 +88,7 @@ while(1):
             bar = plot_colors2(hist, clt.cluster_centers_)
 
             cv.imshow('bar', bar)
-
+            
     
     '''
     #draw all contours 
