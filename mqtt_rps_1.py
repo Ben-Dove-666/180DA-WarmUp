@@ -69,13 +69,13 @@ client.loop_start()
 while True:  # perhaps add a stopping condition using some break or something.
       # do your non-blocked other stuff here, like receive IMU data or something.
 # use subscribe() to subscribe to a topic and receive messages.
-    val = input("Enter a int between 1 and 10: ")
+    val = input("Enter a int between 0 and 3: ")
     err, mid = client.publish("meme/yee1",val)
     
     while not pla1_rece or not pla2_rece: 
         pass  #if you had graphics or soething, you would update graphics here.
     
-    fight(player1_val, player2_val)
+    fight2(player1_val, player2_val)
     player1_val = 0
     player2_val = 0
     pla1_rece = False
